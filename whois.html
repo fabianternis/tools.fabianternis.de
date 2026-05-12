@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHOIS Lookup Tool</title>
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="whois.css">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="btn" title="Back to Home">🏠</a>
+            <h1>WHOIS Lookup</h1>
+        </div>
+        <div class="controls">
+            <button id="clear_btn" class="btn">Clear</button>
+            <button id="copy_btn" class="btn">Copy JSON</button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="card input-panel">
+            <div class="panel-header">
+                <span>Domain Lookup</span>
+            </div>
+            <div class="lookup-form">
+                <input type="text" id="domain_input" class="input-field" placeholder="example.com" spellcheck="false">
+                <button id="lookup_btn" class="btn btn-primary">Lookup</button>
+            </div>
+        </section>
+
+        <section class="card result-panel">
+            <div class="panel-header">
+                <span>WHOIS / RDAP Data</span>
+                <span id="status_badge" class="badge">Ready</span>
+            </div>
+            <div id="result_container" class="result-content">
+                <pre id="whois_output">Results will appear here...</pre>
+            </div>
+        </section>
+    </main>
+
+    <script src="whois.js"></script>
+</body>
+</html>
