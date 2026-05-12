@@ -57,6 +57,22 @@ header h1 {
     background-color: var(--primary-hover);
 }
 
+.input-field {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.875rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-field:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+}
+
 main {
     flex: 1;
     padding: 1rem;

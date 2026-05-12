@@ -52,6 +52,61 @@ main {
     gap: 0.5rem;
 }
 
+.resource-inputs {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    margin: 0 2rem;
+}
+
+.resource-inputs .input-field {
+    flex: 1;
+    max-width: 300px;
+}
+
+/* Fullscreen Mode */
+body.fullscreen main {
+    padding: 0;
+    gap: 0;
+}
+
+body.fullscreen .editor-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 200px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+body.fullscreen .editor-panel:hover {
+    opacity: 1;
+}
+
+body.fullscreen .preview-panel {
+    border: none;
+    border-radius: 0;
+}
+
+body.fullscreen header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: rgba(var(--header-bg), 0.8);
+    backdrop-filter: blur(8px);
+    transform: translateY(-90%);
+    transition: transform 0.3s ease;
+}
+
+body.fullscreen header:hover {
+    transform: translateY(0);
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
     main {
