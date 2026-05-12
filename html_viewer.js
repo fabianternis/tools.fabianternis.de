@@ -7,13 +7,12 @@ const copyBtn = document.getElementById('copy_btn');
 const downloadBtn = document.getElementById('download_btn');
 const sampleBtn = document.getElementById('sample_btn');
 const fullscreenBtn = document.getElementById('fullscreen_btn');
-const cssInput = document.getElementById('css_resource');
-const jsInput = document.getElementById('js_resource');
 
 const SAMPLE_HTML = `<!DOCTYPE html>
 <html>
 <head>
     <style>
+        body { margin: 0; min-height: 100vh; }
         .card {
             font-family: sans-serif;
             border: 2px solid #0d6efd;
@@ -22,6 +21,7 @@ const SAMPLE_HTML = `<!DOCTYPE html>
             max-width: 300px;
             text-align: center;
             margin: 50px auto;
+            background: white;
         }
         h2 { color: #0d6efd; }
         p { color: #666; }
@@ -38,7 +38,7 @@ const SAMPLE_HTML = `<!DOCTYPE html>
 <body>
     <div class="card">
         <h2>Hello World!</h2>
-        <p>This is a live HTML preview.</p>
+        <p>This is a live HTML preview with iframe isolation.</p>
         <button onclick="alert('Hello from the viewer!')">Click Me</button>
     </div>
 </body>
@@ -47,43 +47,19 @@ const SAMPLE_HTML = `<!DOCTYPE html>
 function update_html() {
     const html_raw = html_input.value;
     
-    // Create an iframe to safely render HTML with external resources
+    // Create an iframe to safely render HTML
     html_display.innerHTML = '';
     const iframe = document.createElement('iframe');
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
     html_display.appendChild(iframe);
 
     const doc = iframe.contentWindow.document;
     doc.open();
-    
-    let injectedResources = '';
-    if (cssInput.value.trim()) {
-        injectedResources += `<link rel="stylesheet" href="${cssInput.value.trim()}">`;
-    }
-    if (jsInput.value.trim()) {
-        injectedResources += `<script src="${jsInput.value.trim()}"></script>`;
-    }
-
-    // Wrap the raw HTML if it doesn't have head/body to inject resources
-    let finalHtml = html_raw;
-    if (injectedResources) {
-        if (finalHtml.includes('<head>')) {
-            finalHtml = finalHtml.replace('<head>', `<head>${injectedResources}`);
-        } else {
-            finalHtml = injectedResources + finalHtml;
-        }
-    }
-
-    doc.write(finalHtml);
+    doc.write(html_raw);
     doc.close();
 }
 
 function clear_editor() {
     html_input.value = '';
-    cssInput.value = '';
-    jsInput.value = '';
     update_html();
 }
 
@@ -123,13 +99,12 @@ function toggle_fullscreen() {
 
 // Event Listeners
 html_input.addEventListener('input', update_html);
-cssInput.addEventListener('input', update_html);
-jsInput.addEventListener('input', update_html);
 clearBtn.addEventListener('click', clear_editor);
 copyBtn.addEventListener('click', copy_to_clipboard);
 downloadBtn.addEventListener('click', download_html);
 sampleBtn.addEventListener('click', load_sample);
 fullscreenBtn.addEventListener('click', toggle_fullscreen);
+
 
 // Initial focus
 window.addEventListener('load', () => {
