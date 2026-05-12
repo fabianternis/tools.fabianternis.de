@@ -21,36 +21,46 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
 }
 
 header h1 {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .btn {
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
     color: var(--text-color);
     cursor: pointer;
     font-size: 0.875rem;
+    font-weight: 500;
     transition: var(--transition);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    user-select: none;
 }
 
 .btn:hover {
     background-color: var(--sidebar-bg);
+    border-color: var(--secondary-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+    transform: translateY(0);
 }
 
 .btn-primary {
@@ -61,37 +71,43 @@ header h1 {
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 .input-field {
-    padding: 0.5rem 0.75rem;
-    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
     color: var(--text-color);
     font-size: 0.875rem;
     outline: none;
     transition: var(--transition);
+    width: 100%;
 }
 
 .input-field:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.15);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
 main {
     flex: 1;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
-    gap: 1rem;
-    overflow: hidden;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
 }
