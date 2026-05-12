@@ -1,13 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Viwewer Tool</title>
+    <title>HTML Viewer Tool</title>
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="html_viewer.css">
 </head>
 <body>
-    <textarea name="html_code" id="html_code"></textarea>
-    <div id="html_container"></div>
+    <header>
+        <h1>HTML Viewer</h1>
+        <div class="controls">
+            <button id="fullscreen_btn" class="btn" title="Toggle Fullscreen Preview">⛶</button>
+            <button id="clear_btn" class="btn">Clear</button>
+            <button id="copy_btn" class="btn">Copy</button>
+            <button id="download_btn" class="btn">Download</button>
+            <button id="sample_btn" class="btn btn-primary">Load Sample</button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="card editor-panel">
+            <div class="panel-header">
+                <span>Editor</span>
+            </div>
+            <textarea name="html_code" id="html_code" spellcheck="false" placeholder="Enter your HTML here..."></textarea>
+        </section>
+
+        <section class="card preview-panel">
+            <div class="panel-header">
+                <span>Preview</span>
+            </div>
+            <div id="html_container"></div>
+        </section>
+    </main>
+
     <script src="html_viewer.js"></script>
 </body>
 </html>
