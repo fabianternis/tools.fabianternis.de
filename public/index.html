@@ -9,38 +9,52 @@
     <style>
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
         .tool-card {
             text-decoration: none;
             color: inherit;
             transition: var(--transition);
         }
-        .tool-card:hover {
-            transform: translateY(-5px);
-        }
         .tool-card .card {
-            padding: 1.5rem;
+            padding: 2.5rem 2rem;
             height: 100%;
             justify-content: center;
             align-items: center;
             text-align: center;
+            border-width: 2px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--sidebar-bg) 100%);
+        }
+        .tool-card:hover .card {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
         }
         .tool-card h2 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
         }
         .tool-card p {
-            font-size: 0.9rem;
-            opacity: 0.7;
+            font-size: 1rem;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
         header {
             justify-content: center;
+            padding: 2rem;
+        }
+        header h1 {
+            font-size: 2rem;
         }
     </style>
 </head>
@@ -49,22 +63,22 @@
         <h1>Tools Collection</h1>
     </header>
     
-    <main>
+    <main style="display: block;">
         <div class="tools-grid">
             <a href="html_viewer.html" class="tool-card">
                 <section class="card">
+                    <span class="tool-icon">🌐</span>
                     <h2>HTML Viewer</h2>
-                    <p>Live preview for HTML code</p>
+                    <p>Professional live preview for your HTML and CSS code snippets.</p>
                 </section>
             </a>
-            <!-- WHOIS Lookup disabled for now
             <a href="whois.html" class="tool-card">
                 <section class="card">
+                    <span class="tool-icon">🔍</span>
                     <h2>WHOIS Lookup</h2>
-                    <p>Retrieve WHOIS/RDAP information for domains</p>
+                    <p>Instant domain registration details and networking information.</p>
                 </section>
             </a>
-            -->
         </div>
     </main>
 </body>

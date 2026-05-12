@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         whoisOutput.textContent = 'Fetching data...';
 
         try {
-            // Using networkcalc.com API as it usually supports CORS and provides WHOIS data
-            const response = await fetch(`https://networkcalc.com/api/dns/whois/${domain}`);
+            // Using our local PHP proxy backend
+            const response = await fetch(`api/whois.php?domain=${encodeURIComponent(domain)}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
